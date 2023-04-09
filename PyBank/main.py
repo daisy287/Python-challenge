@@ -46,13 +46,25 @@ def count_lines_within_file(file):
 
     average_change= (last_number-first_number) / (line_count -1)
 
-    print("Total months: " + str(line_count))
-    print("Net Total: $" + str(net_total))
-    print("Average Change: $" + str(round(average_change, 2)))
-    print("Greatest Increase in Profits: " + month_increase+" ($" + str(greatest_increase) +")")
-    print("Greatest Decrease in Profits: " + month_decrease+" ($" + str(greatest_decrease) +")")
+    total_months = "Total months: " + str(line_count) + "\n"
+    net_totals = "Net Total: $" + str(net_total) + "\n"
+    average_changes = "Average Change: $" + str(round(average_change, 2)) + "\n"
+    Greatest_Increase_in_Profits = "Greatest Increase in Profits: " + month_increase+" ($" + str(greatest_increase) +")" + "\n"
+    Greatest_Decrease_in_Profits = "Greatest Decrease in Profits: " + month_decrease+" ($" + str(greatest_decrease) +")" + "\n"
     
     
+    file = './Analysis/budget_analysis.csv'
+
+    with open (file, "w") as file:
+    
+        file.write(total_months)
+        file.write(net_totals)
+        file.write(average_changes)
+        file.write(Greatest_Increase_in_Profits)
+        file.write(Greatest_Decrease_in_Profits)
+
+
+
 file = 'Resources/budget_data.csv'
 
 with open(file, 'r') as text:
